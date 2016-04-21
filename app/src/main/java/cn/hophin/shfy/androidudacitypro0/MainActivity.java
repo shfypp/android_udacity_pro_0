@@ -74,26 +74,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        String toastInfo="";
         switch (v.getId()){
             case R.id.spotify_streamer_button:
-                Toast.makeText(this,toastContent[0],Toast.LENGTH_SHORT).show();
+                toastInfo=toastContent[0];
                 break;
             case R.id.scores_app_button:
-                Toast.makeText(this,toastContent[1],Toast.LENGTH_SHORT).show();
+                toastInfo=toastContent[1];
                 break;
             case R.id.library_app_button:
-                Toast.makeText(this,toastContent[2],Toast.LENGTH_SHORT).show();
+                toastInfo=toastContent[2];
                 break;
             case R.id.build_it_bigger_button:
-                Toast.makeText(this,toastContent[3],Toast.LENGTH_SHORT).show();
+                toastInfo=toastContent[3];
                 break;
             case R.id.xyz_reader_button:
-                Toast.makeText(this,toastContent[4],Toast.LENGTH_SHORT).show();
+                toastInfo=toastContent[4];
                 break;
             case R.id.capstone_my_own_app_button:
-                Toast.makeText(this,toastContent[5],Toast.LENGTH_SHORT).show();
+                toastInfo=toastContent[5];
                 break;
         }
-
+        Toast.makeText(this,toastInfo,Toast.LENGTH_SHORT).show();
     }
 }
