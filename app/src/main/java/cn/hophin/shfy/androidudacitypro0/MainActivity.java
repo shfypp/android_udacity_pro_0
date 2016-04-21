@@ -1,15 +1,30 @@
 package cn.hophin.shfy.androidudacitypro0;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button spotifyStreamer;
+    private Button scoresApp;
+    private Button libraryApp;
+    private Button buildITBigger;
+    private Button xyzReader;
+    private Button capstonMyOwnApp;
+
+    private String[] toastContent={
+            "This button will launch spotify streamer!",
+            "This button will launch scores app!",
+            "This button will launch library app!",
+            "This button will launch build IT bigger app!",
+            "This button will launch xyzReader!",
+            "This button will launch my capstone app!"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +33,21 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        spotifyStreamer= (Button) findViewById(R.id.spotify_streamer_button);
+        scoresApp= (Button) findViewById(R.id.scores_app_button);
+        libraryApp= (Button) findViewById(R.id.library_app_button);
+        buildITBigger= (Button) findViewById(R.id.build_it_bigger_button);
+        xyzReader= (Button) findViewById(R.id.xyz_reader_button);
+        capstonMyOwnApp= (Button) findViewById(R.id.capstone_my_own_app_button);
+
+        spotifyStreamer.setOnClickListener(this);
+        scoresApp.setOnClickListener(this);
+        libraryApp.setOnClickListener(this);
+        buildITBigger.setOnClickListener(this);
+        xyzReader.setOnClickListener(this);
+        capstonMyOwnApp.setOnClickListener(this);
+
+        setTitle(getString(R.string.title_main_activity));
     }
 
     @Override
@@ -48,5 +70,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.spotify_streamer_button:
+                Toast.makeText(this,toastContent[0],Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.scores_app_button:
+                Toast.makeText(this,toastContent[1],Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.library_app_button:
+                Toast.makeText(this,toastContent[2],Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.build_it_bigger_button:
+                Toast.makeText(this,toastContent[3],Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.xyz_reader_button:
+                Toast.makeText(this,toastContent[4],Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.capstone_my_own_app_button:
+                Toast.makeText(this,toastContent[5],Toast.LENGTH_SHORT).show();
+                break;
+        }
+
     }
 }
